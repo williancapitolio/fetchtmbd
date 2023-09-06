@@ -1,7 +1,7 @@
 import { MoviesType } from "../types/MoviesType";
 
 export const movieLoader = async (): Promise<MoviesType> => {
-  const url = import.meta.env.VITE_URL;
+  const url: string = import.meta.env.VITE_URL;
 
   const options = {
     method: "GET",
