@@ -1,7 +1,13 @@
+import { Outlet } from "react-router-dom";
+
 export const Layout = () => {
   return (
     <>
-    <h1>{import.meta.env.VITE_TEST}</h1>
+      <header>HEADER</header>
+      <main>
+        <Outlet />
+      </main>
+      <footer>FOOTER</footer>
     </>
   );
-}
+};
