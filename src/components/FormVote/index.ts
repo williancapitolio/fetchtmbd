@@ -1,0 +1,1 @@
+export { FormVote } from "./FormVote";
