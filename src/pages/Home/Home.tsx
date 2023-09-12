@@ -10,14 +10,16 @@ export const Home = () => {
   return (
     <>
       HOME
-      {movies.results.map(({ id, poster_path, title, vote_average }) => (
-        <Card
-          key={id}
-          poster_path={poster_path}
-          title={title}
-          vote_average={vote_average}
-        />
-      ))}
+      {movies.results
+        .sort((a, b) => b.vote_average - a.vote_average)
+        .map(({ id, poster_path, title, vote_average }) => (
+          <Card
+            key={id}
+            poster_path={poster_path}
+            title={title}
+            vote_average={vote_average}
+          />
+        ))}
     </>
   );
 };
