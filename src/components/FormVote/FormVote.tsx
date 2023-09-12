@@ -10,7 +10,7 @@ export const FormVote = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <label htmlFor="vote">Avaliar</label>
+      <label htmlFor="vote">Avaliar de 0 a 10</label>
       <input
         id="vote"
         type="range"
