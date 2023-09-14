@@ -1,11 +1,15 @@
 import { useState } from "react";
+import { useRating } from "../../hooks/useRating";
 
 export const FormVote = () => {
   const [vote, setVote] = useState(0);
 
+  const { addRating } = useRating();
+
   const handleSubmit = (ev: React.SyntheticEvent) => {
     ev.preventDefault();
-    console.log(vote);
+    addRating(346698, vote)
+    console.log({ value: vote });
   };
 
   return (
