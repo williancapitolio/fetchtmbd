@@ -15,6 +15,7 @@ export const Home = () => {
         .map(({ id, poster_path, title, vote_average }) => (
           <Card
             key={id}
+            id={id}
             poster_path={poster_path}
             title={title}
             vote_average={vote_average}
