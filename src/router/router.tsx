@@ -2,10 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 
 import { Layout } from "../pages/Layout";
 import { Home } from "../pages/Home";
+import { RatedMovies } from "../pages/RatedMovies";
 
 import { guestSessionLoader } from "../loaders/guestSessionLoader";
 import { movieLoader } from "../loaders/movieLoader";
-import { RatedMovies } from "../pages/RatedMovies";
+import { ratedMoviesLoader } from "../loaders/ratedMoviesLoader";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +22,7 @@ export const router = createBrowserRouter([
       {
         path: "rated-movies",
         element: <RatedMovies />
+        loader: ratedMoviesLoader,
       }
     ],
   },
