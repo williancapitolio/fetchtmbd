@@ -13,7 +13,6 @@ export const FormVote = ({ id }: FormVoteType) => {
   const handleSubmit = (ev: React.SyntheticEvent) => {
     ev.preventDefault();
     addRating(id, vote);
-    console.log({ value: vote });
   };
 
   return (

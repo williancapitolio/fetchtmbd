@@ -5,6 +5,7 @@ import { Home } from "../pages/Home";
 
 import { guestSessionLoader } from "../loaders/guestSessionLoader";
 import { movieLoader } from "../loaders/movieLoader";
+import { RatedMovies } from "../pages/RatedMovies";
 
 export const router = createBrowserRouter([
   {
@@ -17,6 +18,10 @@ export const router = createBrowserRouter([
         element: <Home />,
         loader: movieLoader,
       },
+      {
+        path: "rated-movies",
+        element: <RatedMovies />
+      }
     ],
   },
 ]);
