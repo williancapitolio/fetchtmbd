@@ -21,9 +21,9 @@ export const router = createBrowserRouter([
       },
       {
         path: "rated-movies",
-        element: <RatedMovies />
+        element: <RatedMovies />,
         loader: ratedMoviesLoader,
-      }
+      },
     ],
   },
 ]);

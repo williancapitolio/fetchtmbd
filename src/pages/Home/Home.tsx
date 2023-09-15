@@ -9,7 +9,7 @@ export const Home = () => {
 
   return (
     <>
-      HOME
+      <h1>Filmes em Cartaz</h1>
       {movies.results
         .sort((a, b) => b.vote_average - a.vote_average)
         .map(({ id, poster_path, title, vote_average }) => (

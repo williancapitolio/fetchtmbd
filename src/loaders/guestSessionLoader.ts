@@ -21,7 +21,7 @@ export const guestSessionLoader = async (): Promise<GuestSessionType> => {
   if (!localStorage.getItem("guest_session_id")) {
     localStorage.setItem(
       "guest_session_id",
-      JSON.stringify(guestSession.guest_session_id)
+      guestSession.guest_session_id
     );
   }
 

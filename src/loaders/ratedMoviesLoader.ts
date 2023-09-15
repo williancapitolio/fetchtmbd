@@ -6,7 +6,7 @@ export const ratedMoviesLoader = async (): Promise<MoviesType> => {
 
   const url = `${
     import.meta.env.VITE_RATED_MOVIES
-  }${storedGuestSession}/rated/movies`;
+  }${storedGuestSession}/rated/movies?language=pt-BR`;
   const token: string = import.meta.env.VITE_TOKEN;
 
   const options = {
