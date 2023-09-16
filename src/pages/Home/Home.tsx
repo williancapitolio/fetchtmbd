@@ -19,6 +19,7 @@ export const Home = () => {
             poster_path={poster_path}
             title={title}
             vote_average={vote_average}
+            rating="add"
           />
         ))}
     </>
