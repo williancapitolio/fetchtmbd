@@ -6,6 +6,7 @@ import { MoviesType } from "../../types/MoviesType";
 
 export const RatedMovies = () => {
   const { movies } = useLoaderData() as MoviesType;
+  console.log(movies);
 
   return (
     <>
@@ -13,14 +14,15 @@ export const RatedMovies = () => {
       {movies.results.length > 0 ? (
         movies.results
           .sort((a, b) => b.vote_average - a.vote_average)
-          .map(({ id, poster_path, title, vote_average }) => (
+          .map(({ id, poster_path, rating, title, vote_average }) => (
             <Card
               key={id}
               id={id}
               poster_path={poster_path}
+              rating={rating}
               title={title}
               vote_average={vote_average}
-              rating="delete"
+              ratingAction="delete"
             />
           ))
       ) : (
