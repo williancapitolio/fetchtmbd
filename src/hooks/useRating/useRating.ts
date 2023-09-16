@@ -5,9 +5,9 @@ export const useRating = () => {
   
   const addRating = async (movie_id: number, value: number) => {
     const url: string = `${
-      import.meta.env.VITE_ADD_RATING
-    }${movie_id}/rating?guest_session_id=${storedGuestSession}`;
-    const token: string = import.meta.env.VITE_TOKEN;
+      import.meta.env.VITE_URL_ADD_RATING
+    }${movie_id}/rating?guest_session_id=${storedGuestSession}&api_key=${import.meta.env.VITE_API_KEY}`;
+    /* const token: string = import.meta.env.VITE_TOKEN; */
     const rating = `{"value":${value}}`;
 
     const options = {
@@ -15,7 +15,7 @@ export const useRating = () => {
       headers: {
         accept: "application/json",
         "Content-Type": "application/json;charset=utf-8",
-        Authorization: token,
+        /* Authorization: token, */
       },
       body: rating,
     };

@@ -5,15 +5,15 @@ export const ratedMoviesLoader = async (): Promise<MoviesType> => {
   if (!storedGuestSession) throw new Error("Something went wrong...");
 
   const url = `${
-    import.meta.env.VITE_RATED_MOVIES
-  }${storedGuestSession}/rated/movies?language=pt-BR`;
-  const token: string = import.meta.env.VITE_TOKEN;
+    import.meta.env.VITE_URL_RATED_MOVIES
+  }${storedGuestSession}/rated/movies?language=pt-BR&api_key=${import.meta.env.VITE_API_KEY}`;
+  /* const token: string = import.meta.env.VITE_TOKEN; */
 
   const options = {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization: token,
+      /* Authorization: token, */
     },
   };
 

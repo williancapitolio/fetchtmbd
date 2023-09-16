@@ -1,14 +1,14 @@
 import { MoviesType } from "../types/MoviesType";
 
 export const movieLoader = async (): Promise<MoviesType> => {
-  const url: string = import.meta.env.VITE_URL;
-  const token: string = import.meta.env.VITE_TOKEN;
+  const url: string = import.meta.env.VITE_URL_NOW_PLAYING;
+  /* const token: string = import.meta.env.VITE_TOKEN; */
 
   const options = {
     method: "GET",
     headers: {
       accept: "application/json",
-      Authorization: token,
+      /* Authorization: token, */
     },
   };
 
