@@ -1,7 +1,17 @@
+import { useLoaderData } from "react-router-dom";
+
+import { useState } from "react";
+
 import { useGuestSession } from "../useGuestSession";
+
+import { MoviesType, IMovie } from "../../types/MoviesType";
 
 export const useRating = () => {
   const { storedGuestSession } = useGuestSession();
+
+  const { movies } = useLoaderData() as MoviesType;
+
+  const [data, setData] = useState<[] | IMovie[]>([]);
 
   const addRating = async (movie_id: number, value: number) => {
     const url = `${
@@ -49,5 +59,16 @@ export const useRating = () => {
       .catch((err) => console.error("error:" + err));
   };
 
-  return { addRating, deleteRating };
+  const getDataRated = () => {
+    const items: IMovie[] = [];
+
+    /* if (movies.results.length < 0) return; */
+
+    movies.results.map((movie) => {
+      items.push(movie);
+    });
+    return setData(items);
+  };
+
+  return { addRating, deleteRating, data, getDataRated };
 };

@@ -12,11 +12,11 @@ export const FormVote = ({ id, rating, ratingAction }: FormVoteType) => {
 
   const { addRating, deleteRating } = useRating();
 
-  const handleSubmit = (ev: React.SyntheticEvent) => {
+  const handleSubmit = async (ev: React.SyntheticEvent) => {
     ev.preventDefault();
 
-    if (ratingAction === "add") addRating(id, vote);
-    else if (ratingAction === "delete") deleteRating(id);
+    if (ratingAction === "add") await addRating(id, vote);
+    else if (ratingAction === "delete") await deleteRating(id);
   };
 
   if (ratingAction === "add") {
