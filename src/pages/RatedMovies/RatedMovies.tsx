@@ -1,26 +1,32 @@
+import { useEffect, useState } from "react";
+
 /* import { useLoaderData } from "react-router-dom"; */
-
-import { useEffect } from "react";
-
-import { useRating } from "../../hooks/useRating";
 
 import { Card } from "../../components/Card";
 
-/* import { MoviesType } from "../../types/MoviesType"; */
+import { IMovie /* , MoviesType */ } from "../../types/MoviesType";
+import { ratedMoviesLoader } from "../../loaders/ratedMoviesLoader";
 
 export const RatedMovies = () => {
+  const [ratedMoviesList, setRatedMoviesList] = useState<[] | IMovie[]>([]);
+
   /* const { movies } = useLoaderData() as MoviesType; */
-  const { data, getDataRated } = useRating();
+
+  const getAllRatedMovies = async () => {
+    const { movies } = await ratedMoviesLoader();
+
+    setRatedMoviesList(movies.results);
+  };
 
   useEffect(() => {
-    getDataRated();
-  }, []);
+    getAllRatedMovies();
+  }, [ratedMoviesList]);
 
   return (
     <>
       <h1>Filmes Avaliados</h1>
-      {data.length > 0 ? (
-        data
+      {ratedMoviesList.length > 0 ? (
+        ratedMoviesList
           .sort((a, b) => b.vote_average - a.vote_average)
           .map(({ id, poster_path, rating, title, vote_average }) => (
             <Card

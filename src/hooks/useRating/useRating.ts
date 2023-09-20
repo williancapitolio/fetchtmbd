@@ -1,17 +1,7 @@
-import { useLoaderData } from "react-router-dom";
-
-import { useState } from "react";
-
 import { useGuestSession } from "../useGuestSession";
-
-import { MoviesType, IMovie } from "../../types/MoviesType";
 
 export const useRating = () => {
   const { storedGuestSession } = useGuestSession();
-
-  const { movies } = useLoaderData() as MoviesType;
-
-  const [data, setData] = useState<[] | IMovie[]>([]);
 
   const addRating = async (movie_id: number, value: number) => {
     const url = `${
@@ -34,7 +24,7 @@ export const useRating = () => {
 
     await fetch(url, options)
       .then((res) => res.json())
-      .then((json) => console.log(json, rating))
+      .then((json) => console.log(json))
       .catch((err) => console.error("error:" + err));
   };
 
@@ -53,22 +43,19 @@ export const useRating = () => {
       },
     };
 
+    /* const res = await fetch(url, options);
+
+    if (!res.ok) throw new Error("Something went wrong...");
+
+    const deletedMovie = await res.json();
+
+    return { deletedMovie }; */
+
     await fetch(url, options)
       .then((res) => res.json())
       .then((json) => console.log(json))
       .catch((err) => console.error("error:" + err));
   };
 
-  const getDataRated = () => {
-    const items: IMovie[] = [];
-
-    /* if (movies.results.length < 0) return; */
-
-    movies.results.map((movie) => {
-      items.push(movie);
-    });
-    return setData(items);
-  };
-
-  return { addRating, deleteRating, data, getDataRated };
+  return { addRating, deleteRating };
 };
