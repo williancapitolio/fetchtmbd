@@ -1,0 +1,17 @@
+.header {
+  flex-basis: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  /* background-color: #35373a; */
+}
+
+.main {
+  padding: 4.25rem 2rem 1rem 2rem;
+  flex: 1 0 auto;
+  /* padding-top: 3.75rem; */
+}
+
+.footer {
+  flex-basis: 100%;
+}
