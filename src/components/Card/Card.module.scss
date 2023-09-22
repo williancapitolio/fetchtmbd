@@ -1,0 +1,48 @@
+.wrapper {
+  background-color: #121314;
+  padding: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  border-radius: 1rem;
+  display: flex;
+  gap: 1rem;
+  min-width: 22.8125rem;
+
+  &Img {
+    &Banner {
+    }
+  }
+
+  &Content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    &Title {
+    }
+    &Votes {
+    }
+    &Form {
+    }
+
+    &Details {
+      &Btn {
+        padding: 0.75rem 1rem;
+        color: #000;
+        font-size: 1rem;
+        font-weight: 700;
+        background-color: #2572e8;
+        cursor: pointer;
+        border: none;
+        border-radius: 0.5rem;
+        transition: 0.3s;
+        border: 0.1rem solid #2572e8;
+
+        &:hover {
+          margin-left: 0.75rem;
+          border: 0.1rem solid #2572e8;
+          background-color: transparent;
+          color: #2572e8;
+        }
+      }
+    }
+  }
+}

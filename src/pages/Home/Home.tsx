@@ -4,7 +4,7 @@ import { Card } from "../../components/Card";
 
 import { MoviesType } from "../../types/MoviesType";
 
-import styles from "./Home.module.scss"
+import styles from "./Home.module.scss";
 
 export const Home = () => {
   const { movies } = useLoaderData() as MoviesType;
