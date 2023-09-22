@@ -1,5 +1,8 @@
 import { useState } from "react";
+
 import { useRating } from "../../hooks/useRating";
+
+import styles from "./FormVote.module.scss";
 
 type FormVoteType = {
   id: number;
@@ -21,8 +24,8 @@ export const FormVote = ({ id, rating, ratingAction }: FormVoteType) => {
 
   if (ratingAction === "add") {
     return (
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="rate">Avaliar de 0 a 10</label>
+      <form onSubmit={handleSubmit} className={styles.wrapper}>
+        <label htmlFor="rate" className={styles.wrapperLabel}>Avaliar de 0 a 10</label>
         <input
           id="rate"
           type="range"
@@ -31,17 +34,18 @@ export const FormVote = ({ id, rating, ratingAction }: FormVoteType) => {
           step={0.5}
           value={vote}
           onChange={(ev) => setVote(+ev.target.value)}
+          className={styles.wrapperRange}
         />
-        <span>{vote}</span>
-        <button>Adicionar Avaliação</button>
+        <span className={styles.wrapperVote}>{vote}</span>
+        <button className={styles.wrapperBtn}>Adicionar Avaliação</button>
       </form>
     );
   } else if (ratingAction === "delete") {
     return (
       <>
-        <span>Minha Avaliação: {rating}</span>
-        <form onSubmit={handleSubmit}>
-          <button>Remover Avaliação</button>
+        <form onSubmit={handleSubmit} className={styles.wrapper}>
+          <span className={styles.wrapperVote}>Minha Avaliação: {rating}</span>
+          <button className={styles.wrapperBtn}>Remover Avaliação</button>
         </form>
       </>
     );

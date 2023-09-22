@@ -5,10 +5,11 @@
   border-radius: 1rem;
   display: flex;
   gap: 1rem;
-  min-width: 22.8125rem;
+  width: 30rem;
 
   &Img {
     &Banner {
+      border-radius: 0.75rem;
     }
   }
 
