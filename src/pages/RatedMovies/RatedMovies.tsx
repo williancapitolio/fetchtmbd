@@ -2,10 +2,13 @@ import { useEffect, useState } from "react";
 
 /* import { useLoaderData } from "react-router-dom"; */
 
+import { ratedMoviesLoader } from "../../loaders/ratedMoviesLoader";
+
 import { Card } from "../../components/Card";
 
 import { IMovie /* , MoviesType */ } from "../../types/MoviesType";
-import { ratedMoviesLoader } from "../../loaders/ratedMoviesLoader";
+
+import styles from "./RatedMovies.module.scss";
 
 export const RatedMovies = () => {
   const [ratedMoviesList, setRatedMoviesList] = useState<[] | IMovie[]>([]);
@@ -23,25 +26,31 @@ export const RatedMovies = () => {
   }, [ratedMoviesList]);
 
   return (
-    <>
-      <h1>Filmes Avaliados</h1>
-      {ratedMoviesList.length > 0 ? (
-        ratedMoviesList
-          .sort((a, b) => b.vote_average - a.vote_average)
-          .map(({ id, poster_path, rating, title, vote_average }) => (
-            <Card
-              key={id}
-              id={id}
-              poster_path={poster_path}
-              rating={rating}
-              title={title}
-              vote_average={vote_average}
-              ratingAction="delete"
-            />
-          ))
-      ) : (
-        <span>Nenhum filme avaliado</span>
-      )}
-    </>
+    <section className={styles.wrapper}>
+      <h1 className={styles.wrapperTitle}>Filmes Avaliados</h1>
+      <section className={styles.wrapperMovies}>
+        {ratedMoviesList.length > 0 ? (
+          ratedMoviesList
+            .sort((a, b) => b.vote_average - a.vote_average)
+            .map(({ id, poster_path, rating, title, vote_average }) => (
+              <Card
+                key={id}
+                id={id}
+                poster_path={poster_path}
+                rating={rating}
+                title={title}
+                vote_average={vote_average}
+                ratingAction="delete"
+              />
+            ))
+        ) : (
+          <Card id={0} poster_path={"https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg"}
+          rating={0}
+          title={"Nenhum"}
+          vote_average={0}
+          ratingAction="delete"/>
+        )}
+      </section>
+    </section>
   );
 };

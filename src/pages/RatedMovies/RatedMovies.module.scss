@@ -1,0 +1,17 @@
+.wrapper {
+  max-width: 80rem;
+  display: block;
+
+  &Title {
+    padding-bottom: 1rem;
+  }
+
+  &Movies {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    gap: 2rem;
+
+    
+  }
+}
