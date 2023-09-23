@@ -44,11 +44,14 @@ export const RatedMovies = () => {
               />
             ))
         ) : (
-          <Card id={0} poster_path={"https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg"}
-          rating={0}
-          title={"Nenhum"}
-          vote_average={0}
-          ratingAction="delete"/>
+          <Card
+            id={0}
+            poster_path={""}
+            rating={0}
+            title={"Nenhum filme avaliado"}
+            vote_average={0}
+            ratingAction=""
+          />
         )}
       </section>
     </section>

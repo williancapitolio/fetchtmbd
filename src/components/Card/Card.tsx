@@ -8,8 +8,10 @@ import { IMovie } from "../../types/MoviesType";
 
 import styles from "./Card.module.scss";
 
+import noImg from "../../public/img/noimg.jpg";
+
 type CardType = {
-  ratingAction: "add" | "delete";
+  ratingAction: "add" | "delete" | "";
 } & IMovie;
 
 export const Card = ({
@@ -20,16 +22,14 @@ export const Card = ({
   vote_average,
   ratingAction,
 }: CardType) => {
-  const [posterPath, setPosterPath] = useState("");
-
-  const noImg =
-    "https://triunfo.pe.gov.br/pm_tr430/wp-content/uploads/2018/03/sem-foto.jpg";
+  const [posterPath, setPosterPath] = useState<string>(
+    `${import.meta.env.VITE_IMG_MD}${poster_path}`
+  );
 
   useEffect(() => {
-    if (poster_path.includes(noImg)) {
+    console.log(poster_path);
+    if (!poster_path.includes("/")) {
       setPosterPath(noImg);
-    } else {
-      setPosterPath(`${import.meta.env.VITE_IMG_MD}${poster_path}`);
     }
   }, [poster_path]);
 
@@ -40,15 +40,25 @@ export const Card = ({
       </div>
       <div className={styles.wrapperContent}>
         <h3 className={styles.wrapperContentTitle}>{title}</h3>
-        <span className={styles.wrapperContentVotes}>
-          Média de Avaliações: {vote_average.toFixed(1)}
-        </span>
+        {poster_path ? (
+          <span className={styles.wrapperContentVotes}>
+            Média de Avaliações: {vote_average.toFixed(1)}
+          </span>
+        ) : (
+          <span className={styles.wrapperContentVotes}>
+            Média de Avaliações: N/A
+          </span>
+        )}
         <div className={styles.wrapperContentForm}>
           <FormVote id={id} rating={rating} ratingAction={ratingAction} />
         </div>
-        <Link to={`/`} className={styles.wrapperContentDetails}>
-          <button className={styles.wrapperContentDetailsBtn}>Detalhes</button>
-        </Link>
+        {poster_path && (
+          <Link to={`/`} className={styles.wrapperContentDetails}>
+            <button className={styles.wrapperContentDetailsBtn}>
+              Detalhes
+            </button>
+          </Link>
+        )}
       </div>
     </div>
   );
