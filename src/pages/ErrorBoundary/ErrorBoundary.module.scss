@@ -1,0 +1,25 @@
+.header {
+  flex-basis: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  background-color: #35373a;
+}
+
+.main {
+  flex: 1 0 auto;
+  padding-block: 5.5rem 2rem;
+  padding-inline: 2rem;
+  display: grid;
+  place-items: center;
+}
+
+@media (max-width: 31rem) {
+  .main {
+    padding-block: 8rem 2rem;
+  }
+}
+
+.footer {
+  flex-basis: 100%;
+}
