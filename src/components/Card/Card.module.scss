@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+
     &Title {
     }
     &Votes {
@@ -43,6 +44,33 @@
           background-color: transparent;
           color: #2572e8;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 36rem) {
+  .wrapper {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+
+    &Content {
+      gap: 1rem;
+
+      &Details {
+        display: grid;
+        place-items: center;
+      }
+    }
+  }
+}
+
+@media (max-width: 21rem) {
+  .wrapper {
+    &Img {
+      &Banner {
+        width: 100%;
       }
     }
   }
