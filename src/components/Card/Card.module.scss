@@ -57,6 +57,7 @@
 
     &Content {
       gap: 1rem;
+      width: 80%;
 
       &Details {
         display: grid;
@@ -72,6 +73,10 @@
       &Banner {
         width: 100%;
       }
+    }
+
+    &Content {
+      width: 90%;
     }
   }
 }

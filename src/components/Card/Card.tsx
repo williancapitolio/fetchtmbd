@@ -27,7 +27,6 @@ export const Card = ({
   );
 
   useEffect(() => {
-    console.log(poster_path);
     if (!poster_path.includes("/")) {
       setPosterPath(noImg);
     }

@@ -5,7 +5,7 @@
   justify-content: space-between;
   align-items: center;
 
-  &Logo{
+  &Logo {
     font-size: 1.5rem;
     font-weight: 700;
   }
@@ -15,16 +15,29 @@
     gap: 2rem;
 
     &Link {
-      border-bottom: .1rem solid transparent;
-      padding-bottom: .25rem;
+      border-bottom: 0.1rem solid transparent;
+      padding-bottom: 0.25rem;
 
-      &:hover{
-        border-bottom: .1rem solid #fff;
+      &:hover {
+        border-bottom: 0.1rem solid #fff;
       }
     }
   }
 
   &User {
-    font-size: .9rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 31rem) {
+  .wrapper {
+    padding: .75rem 1rem;
+    flex-direction: column;
+    gap: 1rem;
+
+    &Logo {
+      font-size: 1.125rem;
+      font-weight: 700;
+    }
   }
 }
