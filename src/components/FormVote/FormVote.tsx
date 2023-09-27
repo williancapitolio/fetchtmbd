@@ -26,11 +26,10 @@ export const FormVote = ({ id, rating, ratingAction }: FormVoteType) => {
 
         const res = await addRating(id, vote);
 
-        if (res) setBtnAddVote("Editar Avaliação");
-
+        if (res) setBtnAddVote("Adicionar Avaliação");
       } else if (ratingAction === "delete") {
         setBtnRemoveVote("Removendo...");
-        
+
         await deleteRating(id);
       }
     } catch (error) {
