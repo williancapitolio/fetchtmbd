@@ -8,10 +8,13 @@
 
 .main {
   flex: 1 0 auto;
-  padding-block: 5.5rem 2rem;
+  padding-block: 6rem 2rem;
   padding-inline: 2rem;
-  display: grid;
-  place-items: center;
+  /* display: grid;
+  place-items: center; */
+  display: flex;
+  align-items: start;
+  justify-content: center;
 }
 
 @media (max-width: 31rem) {

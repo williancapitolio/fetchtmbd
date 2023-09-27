@@ -22,10 +22,18 @@ export const useRating = () => {
       body: rating,
     };
 
-    await fetch(url, options)
+    const res = await fetch(url, options);
+
+    if (!res.ok) throw new Error("Something went wrong while adding...");
+
+    const addMovie = await res.json();
+
+    return { addMovie };
+
+    /* await fetch(url, options)
       .then((res) => res.json())
       .then((json) => console.log(json))
-      .catch((err) => console.error("error:" + err));
+      .catch((err) => console.error("error:" + err)); */
   };
 
   const deleteRating = async (movie_id: number) => {
@@ -43,18 +51,18 @@ export const useRating = () => {
       },
     };
 
-    /* const res = await fetch(url, options);
+    const res = await fetch(url, options);
 
-    if (!res.ok) throw new Error("Something went wrong...");
+    if (!res.ok) throw new Error("Something went wrong when deleting...");
 
     const deletedMovie = await res.json();
 
-    return { deletedMovie }; */
+    return { deletedMovie };
 
-    await fetch(url, options)
+    /* await fetch(url, options)
       .then((res) => res.json())
       .then((json) => console.log(json))
-      .catch((err) => console.error("error:" + err));
+      .catch((err) => console.error("error:" + err)); */
   };
 
   return { addRating, deleteRating };

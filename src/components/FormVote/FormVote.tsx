@@ -12,20 +12,36 @@ type FormVoteType = {
 
 export const FormVote = ({ id, rating, ratingAction }: FormVoteType) => {
   const [vote, setVote] = useState(0.5);
+  const [btnAddVote, setBtnAddVote] = useState("Adicionar Avaliação");
+  const [btnRemoveVote, setBtnRemoveVote] = useState("Remover Avaliação");
 
   const { addRating, deleteRating } = useRating();
 
   const handleSubmit = async (ev: React.SyntheticEvent) => {
     ev.preventDefault();
 
-    if (ratingAction === "add") await addRating(id, vote);
-    else if (ratingAction === "delete") await deleteRating(id);
+    try {
+      if (ratingAction === "add") {
+        setBtnAddVote("Adicionando...");
+        const res = await addRating(id, vote);
+        if (res) setBtnAddVote("Editar Avaliação");
+      } else if (ratingAction === "delete") {
+        setBtnRemoveVote("Removendo...");
+        await deleteRating(id);
+      }
+    } catch (error) {
+      console.log(error);
+      setBtnAddVote("Tentar novamente");
+      setBtnRemoveVote("Tentar novamente");
+    }
   };
 
   if (ratingAction === "add") {
     return (
       <form onSubmit={handleSubmit} className={styles.wrapper}>
-        <label htmlFor="rate" className={styles.wrapperLabel}>Avaliar de 0 a 10</label>
+        <label htmlFor="rate" className={styles.wrapperLabel}>
+          Avaliar de 0 a 10
+        </label>
         <input
           id="rate"
           type="range"
@@ -37,7 +53,7 @@ export const FormVote = ({ id, rating, ratingAction }: FormVoteType) => {
           className={styles.wrapperRange}
         />
         <span className={styles.wrapperVote}>{vote}</span>
-        <button className={styles.wrapperBtn}>Adicionar Avaliação</button>
+        <button className={styles.wrapperBtn}>{btnAddVote}</button>
       </form>
     );
   } else if (ratingAction === "delete") {
@@ -45,7 +61,7 @@ export const FormVote = ({ id, rating, ratingAction }: FormVoteType) => {
       <>
         <form onSubmit={handleSubmit} className={styles.wrapper}>
           <span className={styles.wrapperVote}>Minha Avaliação: {rating}</span>
-          <button className={styles.wrapperBtn}>Remover Avaliação</button>
+          <button className={styles.wrapperBtn}>{btnRemoveVote}</button>
         </form>
       </>
     );
