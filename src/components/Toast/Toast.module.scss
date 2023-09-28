@@ -1,0 +1,49 @@
+.wrapper {
+  z-index: 1;
+  width: 100%;
+  position: fixed;
+  bottom: 1rem;
+  left: -1rem;
+  display: flex;
+  justify-content: end;
+
+  &Content {
+    background-color: #008000;
+    border-radius: 1rem;
+    padding-block: 0.5rem;
+    width: 20rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: space-around;
+    align-items: center;
+
+    &Div {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding-left: 0.5rem;
+
+      &Type {
+        font-weight: 500;
+      }
+
+      &Msg {
+        font-size: 0.85rem;
+      }
+    }
+
+    &Close {
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+  }
+}
+
+@media (max-width: 25rem) {
+  .wrapper {
+    &Content {
+      width: 85%;
+    }
+  }
+}
