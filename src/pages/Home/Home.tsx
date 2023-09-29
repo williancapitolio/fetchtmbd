@@ -1,7 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 
 import { Card } from "../../components/Card";
-import { Toast } from "../../components/Toast";
 
 import { MoviesType } from "../../types/MoviesType";
 
@@ -28,7 +27,6 @@ export const Home = () => {
             />
           ))}
       </section>
-      <Toast />
     </section>
   );
 };
