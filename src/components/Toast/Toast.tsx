@@ -2,12 +2,10 @@ import styles from "./Toast.module.scss";
 
 type ToastType = {
   isOpen: boolean;
-  handleClickClose: () => void
+  handleClickClose: () => void;
 };
 
 export const Toast = ({ isOpen, handleClickClose }: ToastType) => {
-  
-
   if (isOpen) {
     return (
       <div className={styles.wrapper}>
