@@ -43,7 +43,7 @@ Furthermore, it is good to have an editor to work with the code like [VSCode](ht
 
 ```bash
 # Clone this repo
-$ git clone <https://github.com/williancapitolio/fetchtmbd>
+$ git clone https://github.com/williancapitolio/fetchtmbd
 
 # Access the project folder in terminal/cmd
 $ cd fetchtmbd
@@ -54,7 +54,7 @@ $ npm install
 # Run the application in development mode
 $ npm run dev
 
-# Server will start on port:5173 - access <http://localhost:5173>
+# Server will start on port:5173 - access http://localhost:5173
 ```
 
 ### Variables
@@ -83,6 +83,6 @@ Path of public images of the project
 ### Features
 
 - [ ]  Single movie page
-- [ ]  Get username
+- [ ]  Get username when APP start
 - [ ]  Search bar for movies
-- [ ]  Pagination
+- [ ]  Horizontal pagination
