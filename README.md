@@ -2,12 +2,12 @@
 # FetchTMDB
 
 ## Tabela de conteúdos
-   * [About](###About)
-   * [Technologies](###Technologies)
-   * [Installation](###Installation)
-   * [Running](###Running)
-   * [Variables](###Variables)
-   * [Features](###Features)
+   * [About](#About)
+   * [Technologies](#Technologies)
+   * [Installation](#Installation)
+   * [Running](#Running)
+   * [Variables](#Variables)
+   * [Features](#Features)
 
 ### About
 This project was created to develop skills with React. The API chosen was [TMDB](https://www.themoviedb.org/) because the docs is very complete.
