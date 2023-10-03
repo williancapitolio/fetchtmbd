@@ -1,6 +1,8 @@
 
 # FetchTMDB
 
+![App Screenshot](https://github.com/williancapitolio/fetchtmbd/blob/main/src/public/screenshot/homepage.png)
+
 ## Tabela de conteúdos
    * [About](#About)
    * [Technologies](#Technologies)
