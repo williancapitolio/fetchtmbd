@@ -34,6 +34,7 @@ This project was created to develop skills with React. The API chosen was [TMDB]
     * Vite
     * React Router Dom
 * SASS
+    * CSS Module
 
 ### Installation
 
@@ -87,4 +88,4 @@ Path of public images of the project
 - [ ]  Single movie page
 - [ ]  Get username when APP start
 - [ ]  Search bar for movies
-- [ ]  Horizontal pagination
+- [ ]  Pagination
