@@ -1,6 +1,8 @@
 
 # FetchTMDB
 
+Get a list of movies that are currently in theatres.
+
 ![App Screenshot](https://github.com/williancapitolio/fetchtmbd/blob/main/src/public/screenshot/homepage.png)
 
 ## Table of contents
