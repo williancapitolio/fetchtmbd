@@ -6,7 +6,7 @@ import { RatedMovies } from "../pages/RatedMovies";
 import { ErrorBoundary } from "../pages/ErrorBoundary";
 
 import { guestSessionLoader } from "../loaders/guestSessionLoader";
-import { movieLoader } from "../loaders/movieLoader";
+/* import { movieLoader } from "../loaders/movieLoader"; */
 import { ratedMoviesLoader } from "../loaders/ratedMoviesLoader";
 
 export const router = createBrowserRouter([
@@ -19,7 +19,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <Home />,
-        loader: movieLoader,
+        /* loader: movieLoader, */
       },
       {
         path: "rated-movies",

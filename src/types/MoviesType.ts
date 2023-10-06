@@ -11,3 +11,7 @@ export interface MoviesType {
     results: IMovie[];
   };
 }
+
+export interface MoviesTypeNowPlaying {
+  results: IMovie[];
+}
