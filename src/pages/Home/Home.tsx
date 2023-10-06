@@ -14,9 +14,10 @@ export const Home = () => {
   /* const { movies } = useLoaderData() as MoviesType; */
   const [movies, setMovies] = useState<MoviesTypeNowPlaying>({ results: [] });
   const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState<number>(1);
 
   const fetchMovies = async (): Promise<MoviesTypeNowPlaying> => {
-    const url: string = `${import.meta.env.VITE_URL_NOW_PLAYING}`;
+    const url: string = `${import.meta.env.VITE_URL_NOW_PLAYING}${page}`;
     /* const token: string = import.meta.env.VITE_TOKEN; */
 
     const options = {
@@ -30,7 +31,7 @@ export const Home = () => {
     const res = await fetch(url, options)
       .then((data) => data.json())
       .then((res) => res);
-      
+
     return res;
   };
 
@@ -43,7 +44,7 @@ export const Home = () => {
 
   useEffect(() => {
     getMoviesList();
-  }, []);
+  }, [page]);
 
   return (
     <section className={styles.wrapper}>
@@ -64,6 +65,9 @@ export const Home = () => {
             />
           ))}
       </section>
+      <button onClick={() => setPage(page - 1)}>&lt;</button>
+      <h2>{page}</h2>
+      <button onClick={() => setPage(page + 1)}>&gt;</button>
     </section>
   );
 };
