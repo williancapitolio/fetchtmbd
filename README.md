@@ -18,7 +18,7 @@ This project was created to develop skills with React. The API chosen was [TMDB]
 
 * Initially an API KEY is generated for the user who accesses the system and this KEY is stored in localstorage;
 
-* Home page shows in the form of cards the 20 movies that are being shown in world cinema;
+* Home page shows in the form of cards the 100 movies that are being shown in world cinema ordered by rating;
 
 * Cards show the title the banner and the average rating of the movie;
 
@@ -90,4 +90,4 @@ Path of public images of the project
 - [ ]  Single movie page
 - [ ]  Get username when APP start
 - [ ]  Search bar for movies
-- [ ]  Pagination
+- [X]  Pagination
