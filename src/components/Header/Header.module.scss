@@ -10,6 +10,10 @@
     font-weight: 700;
   }
 
+  &Menu {
+    display: none;
+  }
+
   &Links {
     display: flex;
     gap: 2rem;
@@ -26,6 +30,14 @@
 
   &User {
     font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 42rem) {
+  .wrapper {
+    &Menu {
+      display: flex;
+    }
   }
 }
 

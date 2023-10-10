@@ -4,6 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 
 import { SearchBox } from "../SearchBox";
 
+import { AiOutlineMenu, AiOutlineClose } from "react-icons/ai";
+
 import styles from "./Header.module.scss";
 
 export const Header = () => {
@@ -11,6 +13,15 @@ export const Header = () => {
     home: "",
     rated: "inactiveLink",
   });
+
+  const [displayItems, setDisplayItems] = useState(true)
+
+  const [menu, setMenu] = useState(true);
+
+  const toggleMenu = () => {
+    setMenu(!menu);
+    setDisplayItems(!displayItems)
+  };
 
   const location = useLocation();
 
@@ -38,7 +49,10 @@ export const Header = () => {
       <Link to={"/"} className={styles.wrapperLogo}>
         FetchTMDB
       </Link>
-      <div className={styles.wrapperLinks}>
+      <div className={styles.wrapperMenu} onClick={toggleMenu}>
+        {menu ? <AiOutlineMenu size={25} /> : <AiOutlineClose size={25} />}
+      </div>
+      <div className={styles.wrapperLinks} style={{ display: displayItems ? "" : "none" }}>
         <Link to={"/"} className={`${styles.wrapperLinksLink} ${active.home}`}>
           Início
         </Link>
@@ -49,7 +63,8 @@ export const Header = () => {
           Avaliações
         </Link>
       </div>
-      <SearchBox />
+      <SearchBox display={displayItems}/>
+      
     </div>
   );
 };
