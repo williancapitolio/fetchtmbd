@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 
 import { Card } from "../../components/Card";
+import { Pagination } from "../../components/Pagination";
 
 import {
   MoviesTypeNowPlaying /* , MoviesType */,
@@ -15,8 +16,10 @@ export const Home = () => {
   const [movies, setMovies] = useState<MoviesTypeNowPlaying>({ results: [] });
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState<number>(1);
+  const [isPrevDisabled, setIsPrevDisabled] = useState(false);
+  const [isNextDisabled, setIsNextDisabled] = useState(true);
 
-  const fetchMovies = async (): Promise<MoviesTypeNowPlaying> => {
+  const fetchMovies = async (page: number): Promise<MoviesTypeNowPlaying> => {
     const url: string = `${import.meta.env.VITE_URL_NOW_PLAYING}${page}`;
     /* const token: string = import.meta.env.VITE_TOKEN; */
 
@@ -35,21 +38,31 @@ export const Home = () => {
     return res;
   };
 
-  const getMoviesList = async () => {
-    const data = await fetchMovies();
-    if (!data) throw new Error("erro");
-    setMovies(data);
-    setLoading(false);
+  const handleClickPagination = (ev: React.SyntheticEvent) => {
+    if (ev.currentTarget.id === "prev") {
+      setPage(page - 1);
+    } else if (ev.currentTarget.id === "next") {
+      setPage(page + 1);
+    }
   };
 
   useEffect(() => {
+    page === 1 ? setIsPrevDisabled(true) : setIsPrevDisabled(false);
+    page === 5 ? setIsNextDisabled(true) : setIsNextDisabled(false);
+
+    const getMoviesList = async () => {
+      setMovies(await fetchMovies(page));
+      setLoading(false);
+      scrollTo({ top: 0, behavior: "smooth" });
+    };
+
     getMoviesList();
   }, [page]);
 
   return (
     <section className={styles.wrapper}>
       <h1 className={styles.wrapperTitle}>Filmes em Cartaz</h1>
-      {loading && <h2>Carregando...</h2>}
+      {loading && <h2>Buscando...</h2>}
       <section className={styles.wrapperMovies}>
         {movies.results
           .sort((a, b) => b.vote_average - a.vote_average)
@@ -57,7 +70,7 @@ export const Home = () => {
             <Card
               key={id}
               id={id}
-              poster_path={poster_path}
+              poster_path={poster_path ? poster_path : ""}
               rating={rating}
               title={title}
               vote_average={vote_average}
@@ -65,9 +78,12 @@ export const Home = () => {
             />
           ))}
       </section>
-      <button onClick={() => setPage(page - 1)}>&lt;</button>
-      <h2>{page}</h2>
-      <button onClick={() => setPage(page + 1)}>&gt;</button>
+      <Pagination
+        page={page}
+        handleClickPagination={handleClickPagination}
+        isPrevDisabled={isPrevDisabled}
+        isNextDisabled={isNextDisabled}
+      />
     </section>
   );
 };
