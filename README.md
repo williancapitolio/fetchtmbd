@@ -72,6 +72,7 @@ The variables above are the most important. TOKEN and API KEY
 * VITE_URL_NOW_PLAYING
 * VITE_URL_RATING
 * VITE_URL_RATED_MOVIES
+* VITE_URL_SEARCHED_MOVIES
 
 URLs taken directly from the TMDB API documentation
 
@@ -89,5 +90,5 @@ Path of public images of the project
 
 - [ ]  Single movie page
 - [ ]  Get username when APP start
-- [ ]  Search bar for movies
+- [X]  Search bar for movies
 - [X]  Pagination
