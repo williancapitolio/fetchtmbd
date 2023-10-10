@@ -1,0 +1,1 @@
+export { SearchedMovies } from "./SearchedMovies";

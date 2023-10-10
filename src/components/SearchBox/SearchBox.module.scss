@@ -1,0 +1,32 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.25rem;
+
+  &Search {
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    color: #000;
+  }
+
+  &Btn {
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    color: #000;
+    background-color: #2572e8;
+    border: 0.1rem solid transparent;
+    transition: 0.3s;
+
+    &:hover {
+      color: #2572e8;
+      background-color: #000;
+      border: 0.1rem solid #2572e8;
+    }
+  }
+}

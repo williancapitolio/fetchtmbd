@@ -1,5 +1,8 @@
-import { Link, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
+
+import { Link, useLocation } from "react-router-dom";
+
+import { SearchBox } from "../SearchBox";
 
 import styles from "./Header.module.scss";
 
@@ -22,6 +25,11 @@ export const Header = () => {
         home: "inactiveLink",
         rated: "",
       });
+    } else if (location.pathname.includes("/searched-movies")) {
+      setActive({
+        home: "inactiveLink",
+        rated: "inactiveLink",
+      });
     }
   }, [location]);
 
@@ -41,7 +49,7 @@ export const Header = () => {
           Avaliações
         </Link>
       </div>
-      <span className={styles.wrapperUser}>Olá Visitante!</span>
+      <SearchBox />
     </div>
   );
 };

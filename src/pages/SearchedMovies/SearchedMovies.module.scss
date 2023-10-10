@@ -1,0 +1,23 @@
+.wrapper {
+  max-width: 80rem;
+
+  &Title {
+    padding-bottom: 1rem;
+  }
+
+  &Movies {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    place-items: center;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 68rem) {
+  .wrapper {
+    &Movies {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+}

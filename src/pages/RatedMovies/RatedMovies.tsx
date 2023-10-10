@@ -42,7 +42,7 @@ export const RatedMovies = () => {
                 <Card
                   key={id}
                   id={id}
-                  poster_path={poster_path}
+                  poster_path={poster_path ? poster_path : ""}
                   rating={rating}
                   title={title}
                   vote_average={vote_average}
