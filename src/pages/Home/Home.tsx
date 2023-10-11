@@ -59,7 +59,7 @@ export const Home = () => {
     page === 5 ? setIsLastDisabled(true) : setIsLastDisabled(false);
 
     const getMoviesList = async () => {
-      scrollTo({ top: 0, behavior: "smooth" });
+      scrollTo({ top: 0, behavior: "instant" });
       setMovies(await fetchMovies(page));
       setLoading(false);
     };
