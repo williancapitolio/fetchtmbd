@@ -51,7 +51,7 @@ export const Card = ({
         <div className={styles.wrapperContentForm}>
           <FormVote id={id} rating={rating} ratingAction={ratingAction} />
         </div>
-        {poster_path && (
+        {id !== 0 && (
           <Link to={`/`} className={styles.wrapperContentDetails}>
             <button className={styles.wrapperContentDetailsBtn}>
               Detalhes
