@@ -2,13 +2,13 @@ import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
-type SearchBoxType = {
-  display: boolean;
+type SeachBoxType = {
+  showNavbar: () => void;
 };
 
 import styles from "./SearchBox.module.scss";
 
-export const SearchBox = ({ display }: SearchBoxType) => {
+export const SearchBox = ({ showNavbar }: SeachBoxType) => {
   const [search, setSearch] = useState("");
 
   const navigate = useNavigate();
@@ -17,13 +17,14 @@ export const SearchBox = ({ display }: SearchBoxType) => {
     if (search) {
       navigate(`searched-movies/${search}`);
       setSearch("");
+      showNavbar();
     } else {
       alert("vazio");
     }
   };
 
   return (
-    <section className={styles.wrapper} style={{ display: display ? "" : "none" }}>
+    <section className={styles.wrapper}>
       <input
         type="search"
         name="search"

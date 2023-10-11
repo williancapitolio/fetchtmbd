@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import { Link, useLocation } from "react-router-dom";
 
@@ -14,13 +14,10 @@ export const Header = () => {
     rated: "inactiveLink",
   });
 
-  const [displayItems, setDisplayItems] = useState(true)
+  const navRef = useRef<HTMLDivElement>();
 
-  const [menu, setMenu] = useState(true);
-
-  const toggleMenu = () => {
-    setMenu(!menu);
-    setDisplayItems(!displayItems)
+  const showNavbar = () => {
+    navRef.current?.classList.toggle("responsiveNav");
   };
 
   const location = useLocation();
@@ -49,22 +46,41 @@ export const Header = () => {
       <Link to={"/"} className={styles.wrapperLogo}>
         FetchTMDB
       </Link>
-      <div className={styles.wrapperMenu} onClick={toggleMenu}>
-        {menu ? <AiOutlineMenu size={25} /> : <AiOutlineClose size={25} />}
-      </div>
-      <div className={styles.wrapperLinks} style={{ display: displayItems ? "" : "none" }}>
-        <Link to={"/"} className={`${styles.wrapperLinksLink} ${active.home}`}>
+
+      <div
+        className={styles.wrapperLinks}
+        ref={navRef as React.RefObject<HTMLDivElement>}
+      >
+        <Link
+          to={"/"}
+          className={`${styles.wrapperLinksLink} ${active.home}`}
+          onClick={showNavbar}
+        >
           Início
         </Link>
         <Link
           to={"rated-movies"}
           className={`${styles.wrapperLinksLink} ${active.rated}`}
+          onClick={showNavbar}
         >
           Avaliações
         </Link>
+        <div className={styles.wrapperLinksSearch}>
+          <SearchBox showNavbar={showNavbar} />
+        </div>
+
+        <AiOutlineClose
+          size={25}
+          className={`${styles.wrapperLinksClose} ${styles.CloseBtn}`}
+          onClick={showNavbar}
+        />
       </div>
-      <SearchBox display={displayItems}/>
-      
+
+      <AiOutlineMenu
+        size={25}
+        className={styles.wrapperMenuBtn}
+        onClick={showNavbar}
+      />
     </div>
   );
 };

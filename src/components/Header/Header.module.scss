@@ -1,24 +1,25 @@
 .wrapper {
-  padding: 1.5rem 1rem;
-  border-bottom: 0.1rem solid #fff;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 2rem;
+  background-color: #35373a;
+  height: 4rem;
+  border-bottom: 0.1rem solid #fff;
 
   &Logo {
     font-size: 1.5rem;
     font-weight: 700;
   }
 
-  &Menu {
-    display: none;
-  }
-
   &Links {
     display: flex;
     gap: 2rem;
+    align-items: center;
+    margin-right: 4rem;
 
     &Link {
+      margin: 0 1rem;
       border-bottom: 0.1rem solid transparent;
       padding-bottom: 0.25rem;
 
@@ -26,30 +27,68 @@
         border-bottom: 0.1rem solid #fff;
       }
     }
+
+    &Search {
+      margin: 0 1rem;
+      position: absolute;
+      right: 2rem;
+    }
+
+    &Close {
+      cursor: pointer;
+      background: transparent;
+      border: none;
+      outline: none;
+      visibility: hidden;
+      opacity: 0;
+    }
   }
 
-  &User {
-    font-size: 0.9rem;
+  &MenuBtn {
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    outline: none;
+    visibility: hidden;
+    opacity: 0;
   }
 }
 
-@media (max-width: 42rem) {
+@media (max-width: 56rem) {
   .wrapper {
-    &Menu {
+    &Links {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
       display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #35373a;
+      transition: 0.5s;
+      transform: translateY(-100vh);
+
+      &Search {
+        position: static;
+      }
+
+      &Close {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    &MenuBtn {
+      visibility: visible;
+      opacity: 1;
     }
   }
-}
 
-@media (max-width: 31rem) {
-  .wrapper {
-    padding: .75rem 1rem;
-    flex-direction: column;
-    gap: 1rem;
-
-    &Logo {
-      font-size: 1.125rem;
-      font-weight: 700;
-    }
+  .CloseBtn {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
   }
 }
