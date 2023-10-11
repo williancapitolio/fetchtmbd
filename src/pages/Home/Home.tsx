@@ -16,8 +16,10 @@ export const Home = () => {
   const [movies, setMovies] = useState<MoviesTypeNowPlaying>({ results: [] });
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState<number>(1);
+  const [isFirstDisabled, setIsFirstDisabled] = useState(true);
   const [isPrevDisabled, setIsPrevDisabled] = useState(false);
   const [isNextDisabled, setIsNextDisabled] = useState(true);
+  const [isLastDisabled, setIsLastDisabled] = useState(false);
 
   const fetchMovies = async (page: number): Promise<MoviesTypeNowPlaying> => {
     const url: string = `${import.meta.env.VITE_URL_NOW_PLAYING}${page}`;
@@ -43,12 +45,18 @@ export const Home = () => {
       setPage(page - 1);
     } else if (ev.currentTarget.id === "next") {
       setPage(page + 1);
+    } else if (ev.currentTarget.id === "first") {
+      setPage(1);
+    } else if (ev.currentTarget.id === "last") {
+      setPage(5);
     }
   };
 
   useEffect(() => {
+    page === 1 ? setIsFirstDisabled(true) : setIsFirstDisabled(false);
     page === 1 ? setIsPrevDisabled(true) : setIsPrevDisabled(false);
     page === 5 ? setIsNextDisabled(true) : setIsNextDisabled(false);
+    page === 5 ? setIsLastDisabled(true) : setIsLastDisabled(false);
 
     const getMoviesList = async () => {
       setMovies(await fetchMovies(page));
@@ -81,8 +89,10 @@ export const Home = () => {
       <Pagination
         page={page}
         handleClickPagination={handleClickPagination}
+        isFirstDisabled={isFirstDisabled}
         isPrevDisabled={isPrevDisabled}
         isNextDisabled={isNextDisabled}
+        isLastDisabled={isLastDisabled}
       />
     </section>
   );

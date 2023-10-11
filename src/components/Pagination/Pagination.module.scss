@@ -35,3 +35,17 @@
   background-color: #ffffff28;
   cursor: not-allowed;
 }
+
+@media (max-width: 26rem) {
+  .wrapper {
+    &Btn {
+      height: 2rem;
+      width: 2rem;
+    }
+
+    &Indicator {
+      height: 2rem;
+      width: 2rem;
+    }
+  }
+}
