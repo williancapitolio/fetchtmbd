@@ -15,6 +15,7 @@ export const SearchBox = ({ showNavbar }: SeachBoxType) => {
 
   const handleNavigate = () => {
     if (search) {
+      scrollTo({ top: 0, behavior: "instant" });
       navigate(`searched-movies/${search}`);
       setSearch("");
       showNavbar();

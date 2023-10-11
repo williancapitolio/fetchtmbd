@@ -70,6 +70,10 @@
       transition: 0.5s;
       transform: translateY(-100vh);
 
+      &Link{
+        font-size: 1.125rem;
+      }
+
       &Search {
         position: static;
       }
