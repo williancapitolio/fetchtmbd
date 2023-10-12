@@ -7,7 +7,7 @@ export const movieDetailsLoader = async ({
 }: LoaderFunctionArgs): Promise<IMovie> => {
   const url = `${import.meta.env.VITE_URL_MOVIE_DETAILS}${
     params.movie_id
-  }?language=pt-BR&api_key=981b9f0c15739d4fff4d829853f4dce8&`;
+  }?language=pt-BR&api_key=${import.meta.env.VITE_API_KEY}`;
   const options = { method: "GET", headers: { accept: "application/json" } };
 
   const res = await fetch(url, options);
