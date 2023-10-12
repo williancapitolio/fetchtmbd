@@ -53,7 +53,10 @@ export const Card = ({
         </div>
         {id !== 0 && (
           <Link to={`/movie/${id}`} className={styles.wrapperContentDetails}>
-            <button className={styles.wrapperContentDetailsBtn}>
+            <button
+              className={styles.wrapperContentDetailsBtn}
+              onClick={() => scrollTo({ top: 0, behavior: "instant" })}
+            >
               Detalhes
             </button>
           </Link>
