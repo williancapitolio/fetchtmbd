@@ -4,6 +4,9 @@ export interface IMovie {
   rating: number;
   title: string;
   vote_average: number;
+  backdrop_path?: string;
+  overview?: string;
+  runtime?: number;
 }
 
 export interface MoviesType {

@@ -52,7 +52,7 @@ export const Card = ({
           <FormVote id={id} rating={rating} ratingAction={ratingAction} />
         </div>
         {id !== 0 && (
-          <Link to={`/`} className={styles.wrapperContentDetails}>
+          <Link to={`/movie/${id}`} className={styles.wrapperContentDetails}>
             <button className={styles.wrapperContentDetailsBtn}>
               Detalhes
             </button>

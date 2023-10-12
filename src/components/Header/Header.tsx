@@ -33,7 +33,7 @@ export const Header = () => {
         home: "inactiveLink",
         rated: "",
       });
-    } else if (location.pathname.includes("/searched-movies")) {
+    } else {
       setActive({
         home: "inactiveLink",
         rated: "inactiveLink",
