@@ -3,7 +3,7 @@
 
 Get a list of movies that are currently in cinemas.
 
-![App Screenshot](https://github.com/williancapitolio/fetchtmbd/blob/main/src/public/screenshot/homepage.png)
+![App Screenshot](https://github.com/williancapitolio/fetchtmbd/blob/main/src/public/screenshot/homepage.jpeg)
 
 ## Table of contents
    * [About](#About)
