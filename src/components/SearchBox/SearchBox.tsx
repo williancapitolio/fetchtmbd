@@ -2,6 +2,10 @@ import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
+import { useManageModal } from "../../hooks/useManageModal/useManageModal";
+
+import { Modal } from "../Modal";
+
 type SeachBoxType = {
   showNavbar: () => void;
 };
@@ -13,6 +17,8 @@ export const SearchBox = ({ showNavbar }: SeachBoxType) => {
 
   const navigate = useNavigate();
 
+  const { isModal, manageModal } = useManageModal();
+
   const handleNavigate = () => {
     if (search) {
       scrollTo({ top: 0, behavior: "instant" });
@@ -20,7 +26,7 @@ export const SearchBox = ({ showNavbar }: SeachBoxType) => {
       setSearch("");
       showNavbar();
     } else {
-      alert("vazio");
+      manageModal();
     }
   };
 
@@ -39,6 +45,12 @@ export const SearchBox = ({ showNavbar }: SeachBoxType) => {
       <button onClick={handleNavigate} className={styles.wrapperBtn}>
         Buscar
       </button>
+      <Modal
+        isModal={isModal}
+        modalText="Preencha o nome de algum filme!"
+        modalTitle="Campo vazio!"
+        modalAction={manageModal}
+      />
     </section>
   );
 };
