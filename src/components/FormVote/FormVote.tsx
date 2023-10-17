@@ -5,6 +5,7 @@ import { useRating } from "../../hooks/useRating";
 import { Toast } from "../Toast";
 
 import styles from "./FormVote.module.scss";
+import { useNavigate } from "react-router-dom";
 
 type FormVoteType = {
   id: number;
@@ -17,6 +18,8 @@ export const FormVote = ({ id, rating, ratingAction }: FormVoteType) => {
   const [btnAddVote, setBtnAddVote] = useState("Adicionar Avaliação");
   const [toastManage, setToastManage] = useState<true | false>(false);
   const [btnRemoveVote, setBtnRemoveVote] = useState("Remover Avaliação");
+
+  const navigate = useNavigate();
 
   const { addRating, deleteRating } = useRating();
 
@@ -41,6 +44,8 @@ export const FormVote = ({ id, rating, ratingAction }: FormVoteType) => {
         setBtnRemoveVote("Removendo...");
 
         await deleteRating(id);
+        
+        navigate("/rated-movies");
       }
     } catch (error) {
       console.log(error);
