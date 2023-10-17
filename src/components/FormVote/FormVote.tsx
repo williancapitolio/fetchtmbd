@@ -44,8 +44,10 @@ export const FormVote = ({ id, rating, ratingAction }: FormVoteType) => {
         setBtnRemoveVote("Removendo...");
 
         await deleteRating(id);
-        
-        navigate("/rated-movies");
+
+        setTimeout(() => {
+          navigate("/rated-movies");
+        }, 1000 * 1);
       }
     } catch (error) {
       console.log(error);
